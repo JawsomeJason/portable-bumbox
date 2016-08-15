@@ -1,0 +1,13 @@
+<div class="album-list">
+  {{#each model as |album|}}
+    <div class="album">
+      {{#link-to 'album' album}}<img src="{{album.artwork}}">{{/link-to}}
+      <p class="album-name">{{album.name}}</p>
+      <p class="album-artist">{{album.artist}}</p>
+      <p class="song-count">{{album.songCount}} songs</p>
+      {{#if album.isExplicit}}
+        <span class="explicit">EXPLICIT</span>
+      {{/if}}
+    </div>
+  {{/each}}
+</div>

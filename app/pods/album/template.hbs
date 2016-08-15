@@ -1,0 +1,15 @@
+<div class="album-info">
+  <img src="{{model.artwork}}">
+  <h1>{{model.name}}</h1>
+  <h2>{{model.artist}}</h2>
+</div>
+
+<table class="album-listing">
+  <!-- this should repeat once for each song -->
+  {{#each model.songs as |song|}}
+    {{song-row song=song}}
+  {{/each}}
+  <tr>
+    <td class="total-duration" colspan="3">Total Time: {{format-duration model.totalDuration}}</td>
+  </tr>
+</table>
