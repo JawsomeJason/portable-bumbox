@@ -5,7 +5,7 @@
   To make the tests pass, you will need to create a template that
   produces the following HTML for the song list.
 
-    <div class="album-info">
+    <div class="album__info">
       <img src="artwork.png">
       <h1>Album Name</h1>
       <h2>Artist Name</h2>
@@ -41,9 +41,9 @@ test("Information about the album is displayed", function() {
   click('.album:first a');
 
   andThen(function() {
-    ok(exists('.album-info img[src="images/the-morning-after.jpg"]'), "Has artwork");
-    ok(exists('.album-info h1:contains(The Morning After)'), "Has album name");
-    ok(exists('.album-info h2:contains(GOLDHOUSE)'), "Has artist name");
+    ok(exists('.album__artwork[src="images/the-morning-after.jpg"]'), "Has artwork");
+    ok(exists('.album__name:contains(The Morning After)'), "Has album name");
+    ok(exists('.album__artist:contains(GOLDHOUSE)'), "Has artist name");
   });
 });
 
@@ -52,13 +52,13 @@ test("It should have a list of songs", function() {
   click('.album:first a');
 
   andThen(function() {
-    var trackNumbers = extractContents('.album-listing .song-track .track-number');
+    var trackNumbers = extractContents('.song-row__track-number');
     deepEqual(trackNumbers, ["1", "2", "3", "4"], "Each track number should be shown");
 
-    var songNames = extractContents('.album-listing .song-name');
+    var songNames = extractContents('.song-row__name');
     deepEqual(songNames, ["A Walk", "Hours", "Daydream", "Dive"], "Each song name should be shown");
 
-    equal(count('.album-listing .song-duration:not(:empty)'), 4, "The duration information for four tracks should be displayed");
+    equal(count('.song-row__duration:not(:empty)'), 4, "The duration information for four tracks should be displayed");
   });
 });
 

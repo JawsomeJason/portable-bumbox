@@ -1,0 +1,16 @@
+.application {
+  min-width: 700px;
+  max-width: 1000px;
+  margin: 0 auto;
+  font-family: "lucida grande", sans-serif;
+  padding-top: 18px;
+  padding-bottom: 100px;
+
+  &__title {
+    font-size: 30px;
+    height: 130px;
+    text-indent: 100%;
+    background: url(../images/logo.png) no-repeat center;
+    overflow: hidden;
+  }
+}

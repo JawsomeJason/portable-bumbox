@@ -1,6 +1,6 @@
-<td class="song-track">
-  <span class="track-number">{{song.track}}</span>
+<td class="song-row__track">
+  <span class="song-row__track-number">{{song.track}}</span>
   {{audio-control isPlaying=isPlaying play='play' pause='pause'}}
 </td>
-<td class="song-name">{{song.name}}</td>
-<td class="song-duration">{{format-duration song.duration}}</td>
+<td class="song-row__name">{{song.name}}</td>
+<td class="song-row__duration">{{format-duration song.duration}}</td>

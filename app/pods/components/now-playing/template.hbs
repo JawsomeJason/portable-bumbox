@@ -1,13 +1,13 @@
 {{#if song}}
-  <img class="now-playing-artwork" src="{{song.artwork}}">
-  <div class="now-playing-body">
-    <p class="now-playing-details">
-      <span class="now-playing-name">{{song.name}}</span> -
-      <span class="now-playing-artist">{{song.artist}}</span>
+  <img class="song__artwork" src="{{song.artwork}}">
+  <div class="now-playing__body">
+    <p class="now-playing__details">
+      <span class="song__name">{{song.name}}</span> -
+      <span class="song__artist">{{song.artist}}</span>
     </p>
-    <div class="now-playing-player">
+    <div class="now-playing__player">
       {{audio-control isPlaying=player.isPlaying play='play' pause='pause'}}
-      <p class="duration" {{action 'toggleDuration'}}>
+      <p class="song__duration" {{action 'toggleDuration'}}>
         {{#if isDurationRemaining}}
           {{format-duration remainingTime}}
         {{else}}
@@ -17,6 +17,6 @@
     </div>
   </div>
 {{else}}
-  <span class="now-playing-empty">Select a song to start playing.</span>
+  <span class="now-playing__empty">Select a song to start playing.</span>
 {{/if}}
 

@@ -1,0 +1,19 @@
+@import 'reset';
+@import 'fonts';
+
+#queue {
+  position: absolute;
+  top: 150px;
+  right: 150px;
+  bottom: 150px;
+  left: 150px;
+  border: 1px solid #ccc;
+  background: white;
+  padding: 10px;
+}
+
+.show-queue {
+  width: 100px;
+}
+
+@import 'pods';

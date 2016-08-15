@@ -43,29 +43,29 @@ step(13, "The audio-control component", {
 
 test("The now-playing component has a pause button when a song is playing", function() {
   visit('/album/1');
-  click('td.song-track:first span:contains(▶)');
+  click('.song-row:first .audio-control__play');
 
   andThen(function() {
-    ok(exists('.now-playing span:contains(❙❙)'), "The now-playing component is showing the pause button");
+    ok(exists('.now-playing .audio-control__pause'), "The now-playing component is showing the pause button");
   });
 });
 
 test("Clicking the pause button", function() {
   visit('/album/1');
-  click('td.song-track:first span:contains(▶)');
-  click('.now-playing span:contains(❙❙)');
+  click('.song-row:first .audio-control__play');
+  click('.now-playing .audio-control__pause');
 
   andThen(function() {
-    ok(exists('.now-playing span:contains(▶)'), "The now-playing component is showing the play button");
+    ok(exists('.now-playing .audio-control__play'), "The now-playing component is showing the play button");
     equal(player.get('isPlaying'), false, "The player service stopped playing");
   });
 });
 
 test("Resuming the current song", function() {
   visit('/album/1');
-  click('td.song-track:first span:contains(▶)');
-  click('.now-playing span:contains(❙❙)');
-  click('.now-playing span:contains(▶)');
+  click('.song-row:first .audio-control__play');
+  click('.now-playing .audio-control__pause');
+  click('.now-playing .audio-control__play');
 
   andThen(function() {
     equal(player.get('isPlaying'), true, "The player service is playing");

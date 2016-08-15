@@ -8,20 +8,20 @@
   If there is no song playing, the panel's HTML should look like this:
 
       <footer class="now-playing">
-        <span class="now-playing-empty">Select a song to start playing.</span>
+        <span class="now-playing__empty">Select a song to start playing.</span>
       </footer>
 
   If a song is playing, it should look like this:
 
       <footer class="now-playing">
-        <img class="now-playing-artwork" src="<artwork-url>">
-        <div class="now-playing-body">
-          <p class="now-playing-details">
-            <span class="now-playing-name">Rude Boy</span> -
-            <span class="now-playing-artist">Rihanna</span>
+        <img class="song__artwork" src="<artwork-url>">
+        <div class="now-playing__body">
+          <p class="now-playing__details">
+            <span class="song__name">Rude Boy</span> -
+            <span class="song__artist">Rihanna</span>
           </p>
-          <div class="now-playing-player">
-            <p class="duration">
+          <div class="now-playing__player">
+            <p class="song__duration">
               song duration
             </p>
           </div>
@@ -81,18 +81,18 @@ test("The now-playing component is empty when no song is playing", function() {
   visit('/album/1');
 
   andThen(function() {
-    ok(exists('.now-playing .now-playing-empty'), "The now-playing component is empty when no song is playing");
+    ok(exists('.now-playing .now-playing__empty'), "The now-playing component is empty when no song is playing");
   });
 });
 
 test("Playing a song should update the now-playing template", function() {
   visit('/album/1');
-  click('td.song-track:first span:contains(▶)');
+  click('.song-row:first .audio-control__play');
 
   andThen(function() {
-    ok(exists('.now-playing img.now-playing-artwork[src="images/the-morning-after.jpg"]'), "The current song's artwork is showing");
-    ok(exists('.now-playing div.now-playing-body span.now-playing-name:contains(A Walk)'), "The current song's name is showing");
-    ok(exists('.now-playing div.now-playing-body span.now-playing-artist:contains(GOLDHOUSE)'), "The current song's artist is showing");
+    ok(exists('.now-playing .song__artwork[src="images/the-morning-after.jpg"]'), "The current song's artwork is showing");
+    ok(exists('.now-playing .song__name:contains(A Walk)'), "The current song's name is showing");
+    ok(exists('.now-playing .song__artist:contains(GOLDHOUSE)'), "The current song's artist is showing");
   });
 });
 
@@ -117,9 +117,9 @@ test("The player's currentTime updates as a song plays showing seconds as intege
 
 test("As a song plays the current time in the now-playing template is updated", function() {
   visit('/album/1');
-  click('td.song-track:first span:contains(▶)');
+  click('.song-row:first .audio-control__play');
 
   andThen(function() {
-    ok(contentOf('.now-playing .duration').match(/\d\:\d\d/), "The current time is shown");
+    ok(contentOf('.now-playing .song__duration').match(/\d\:\d\d/), "The current time is shown");
   });
 });

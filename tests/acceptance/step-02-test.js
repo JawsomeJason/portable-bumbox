@@ -9,7 +9,7 @@
         <img src="images/1.jpg">
       </a>
 
-      <p class="album-name">The Morning After</p>
+      <p class="album__name">The Morning After</p>
       <p class="artist-name">GOLDHOUSE</p>
       <p class="song-count">
         8 songs
@@ -26,8 +26,8 @@ import { not } from '../helpers/assertions';
 import step from '../helpers/step';
 
 function albumIsExplicit(name) {
-  var el = findWithAssert('.album:has(.album-name:contains('+name+'))');
-  return el.find('.explicit:contains(EXPLICIT)').length === 1;
+  var el = findWithAssert('.album:has(.album__name:contains('+name+'))');
+  return el.find('.album__explicit:contains(EXPLICIT)').length === 1;
 }
 
 step(2, "Add Explicit Warning");

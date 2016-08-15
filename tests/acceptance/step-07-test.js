@@ -53,7 +53,7 @@ test("Each album formats the duration in seconds as MM:SS", function() {
 
   andThen(function() {
     ['5:10', '7:24', '5:34', '8:19'].forEach(function(duration) {
-      ok(exists('.album-listing .song-duration:contains('+duration+')'), "Found an album with duration of: " + duration);
+      ok(exists('.song-row__duration:contains('+duration+')'), "Found a song with duration of: " + duration);
     });
   });
 });

@@ -31,11 +31,11 @@ import step from '../helpers/step';
 
 step(1, 'Rendering Albums');
 
-test("The album list is enclosed in a <div> with the class 'album-list'", function() {
+test("The album list is enclosed in a <div> with the class 'album__list'", function() {
   visit('/');
 
   andThen(function() {
-    ok(exists('div.album-list'), "The album list is a <div class='album-list'>");
+    ok(exists('div.album__list'), "The album list is a <div class='album__list'>");
   });
 });
 
@@ -43,12 +43,12 @@ test("Each of the four albums should appear on the screen", function() {
   visit('/');
 
   andThen(function() {
-    equal(count('.album-list .album'), 4, "There should be four albums in the list");
+    equal(count('.album__list .album'), 4, "There should be four albums in the list");
 
-    var albumNames = extractContents('.album .album-name');
+    var albumNames = extractContents('.album .album__name');
     deepEqual(albumNames, ['The Morning After', 'Dusk to Dawn', 'The Heist', 'Some Nights'], "Each album title should be rendered");
 
-    var artistNames = extractContents('.album .album-artist');
+    var artistNames = extractContents('.album .album__artist');
     deepEqual(artistNames, ['GOLDHOUSE', 'Emancipator', 'Macklemore & Ryan Lewis', 'fun.'], "Each album artist should be rendered");
 
     var artworkUrls = extractAttributes('.album img', 'src');

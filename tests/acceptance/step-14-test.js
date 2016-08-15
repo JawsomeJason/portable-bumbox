@@ -33,9 +33,9 @@ test("when a song is loaded and the player is not playing, the component shows t
     player.set('isPlaying', false);
   });
 
-  equal(this.$().find('.play span:contains(▶)').length, 1, "The component should contain a play button");
-  equal(this.$().find('.play span:contains(❙❙)').length, 0, "The component should not contain a pause button");
-  equal(this.$().find('.now-playing-name').text().trim(), 'Song name', "The component shows the song name");
+  equal(this.$().find('.audio-control .audio-control__play').length, 1, "The component should contain a play button");
+  equal(this.$().find('.audio-control .audio-control__pause').length, 0, "The component should not contain a pause button");
+  equal(this.$().find('.song__name').text().trim(), 'Song name', "The component shows the song name");
 });
 
 test("Toggling current and remaining time", function() {
@@ -48,7 +48,7 @@ test("Toggling current and remaining time", function() {
     player.set('currentTime', 30);
   });
 
-  var durationElement = this.$().find('.duration');
+  var durationElement = this.$().find('.song__duration');
 
   equal(durationElement.text().trim(), '0:30', "The component should show the current time");
   durationElement.click();

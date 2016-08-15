@@ -6,7 +6,9 @@ const mergeTrees = require("broccoli-merge-trees");
 
 module.exports = function(defaults) {
   const app = new EmberApp(defaults, {
-    // Add options here
+    sassOptions: {
+      includePaths: ['app']
+    }
   });
 
   // Use `app.import` to add additional libraries to the generated

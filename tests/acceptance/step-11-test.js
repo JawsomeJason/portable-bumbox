@@ -25,7 +25,7 @@ step(11, "Enhacing song-row", {
 test("Clicking play on a song sets the song on the player service", function() {
   expect(2);
   visit('/album/1');
-  click('td.song-track:first span:contains(▶)');
+  click('.song-row:nth-child(1) .audio-control__play');
 
   andThen(function() {
     ok(player.get('song') instanceof DS.Model, "the player's song is an Ember Data model");
@@ -36,36 +36,36 @@ test("Clicking play on a song sets the song on the player service", function() {
 test("After clicking on a play button, the song gets the 'is-current-song' class", function() {
   expect(1);
   visit('/album/1');
-  click('td.song-track:first span:contains(▶)');
+  click('.song-row:nth-child(1) .audio-control__play');
 
   andThen(function() {
-    ok(exists('.album-listing tr:first.is-current-song'), "The first song is current");
+    ok(exists('.song-row.is-current-song:nth-child(1)'), "The first song is current");
   });
 });
 
 test("After playing 2 songs in succession", function() {
   expect(4);
   visit('/album/1');
-  click('.album-listing tr:nth-child(1) span:contains(▶)');
-  click('.album-listing tr:nth-child(2) span:contains(▶)');
+  click('.song-row:nth-child(1) .audio-control__play');
+  click('.song-row:nth-child(2) .audio-control__play');
 
   andThen(function() {
-    ok(!exists('.album-listing tr:nth-child(1).is-current-song'), "The first song is not current");
-    ok(exists('.album-listing tr:nth-child(2).is-current-song'), "The second song is current");
+    ok(!exists('.song-row.is-current-song:nth-child(1)'), "The first song is not current");
+    ok(exists('.song-row.is-current-song:nth-child(2)'), "The second song is current");
 
-    ok(exists('.album-listing tr:nth-child(1) span:contains(▶)'), "The first song does have a play button");
-    ok(!exists('.album-listing tr:nth-child(2) span:contains(▶)'), "The second song doesn't have a play button");
+    ok(exists('.song-row:nth-child(1) .audio-control__play'), "The first song does have a play button");
+    ok(!exists('.song-row:nth-child(2) .audio-control__play'), "The second song doesn't have a play button");
   });
 });
 
 test("After playing and then pausing a song", function() {
   expect(2);
   visit('/album/1');
-  click('.album-listing tr:first span:contains(▶)');
+  click('.song-row:nth-child(1) .audio-control__play');
 
   andThen(function() {
-    ok(exists('.album-listing tr:first.is-current-song'), "The song is current");
-    ok(!exists('.album-listing tr:first span:contains(▶)'), "The song doesn't have a play button");
+    ok(exists('.song-row.is-current-song:nth-child(1)'), "The song is current");
+    ok(!exists('.song-row:nth-child(1) .audio-control__play'), "The song doesn't have a play button");
   });
 });
 

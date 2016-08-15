@@ -46,7 +46,7 @@ test("The song stops playing when the service is destroyed", function() {
 
 test("Clicking a song-row play button plays a song", function() {
   visit('album/1');
-  click('.song-track span:contains(▶)');
+  click('.song-row .audio-control__play');
 
   return propertyShouldBecome(player, 'isPlaying', true);
 });
@@ -63,10 +63,10 @@ test("Eventually isPlaying becomes false when the song is paused", function() {
 
 test("Clicking the song-row pause button pauses the player", function() {
   visit('album/1');
-  click('.song-track span:contains(▶)');
+  click('.song-row .audio-control__play');
   propertyShouldBecome(player, 'isPlaying', true);
 
-  click('.song-track span:contains(❙❙)');
+  click('.song-row .audio-control__pause');
   return propertyShouldBecome(player, 'isPlaying', false);
 });
 

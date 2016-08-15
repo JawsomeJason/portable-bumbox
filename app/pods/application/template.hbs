@@ -1,7 +1,13 @@
-<header>
-  <h1>BümBöx</h1>
-</header>
+<div class="application">
+  <header class="application__header">
+    {{#link-to 'index'}}<h1 class="application__title">BümBöx</h1>{{/link-to}}
+  </header>
 
-{{outlet}}
+  <main class="application__content">
+    {{outlet}}
+  </main>
 
-{{now-playing}}
+  <footer class="application__footer">
+    {{now-playing}}
+  </footer>
+</div>

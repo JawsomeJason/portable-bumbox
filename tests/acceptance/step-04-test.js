@@ -28,7 +28,7 @@ test("Clicking on an album shows the album template", function() {
   click('.album:first a');
 
   andThen(function() {
-    ok(exists('.album-info'), "Navigated to the album template");
+    ok(exists('.album__info'), "Navigated to the album template");
   });
 });
 

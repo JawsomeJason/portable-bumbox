@@ -66,7 +66,7 @@ test("The total duration is displayed", function() {
   visit('/album/1');
 
   andThen(function() {
-    equal(contentOf('.total-duration'), 'Total Time: 26:27');
+    equal(contentOf('.album__duration'), 'Total Time: 26:27');
   });
 });
 

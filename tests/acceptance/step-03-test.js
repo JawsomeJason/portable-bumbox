@@ -10,7 +10,7 @@
      template and into a new `index` template.
   2) Create a resource for `/album/:album_id` that renders a new
      `album` template. For now, just make sure that it contains
-     a `div` with the `album-info` class.
+     a `div` with the `album__info` class.
   3) You will need to make sure that each template has the
      correct model provided by its route.
 
@@ -35,7 +35,7 @@ test("When navigating to /album/1, an album template is rendered", function() {
   visit('/album/1');
 
   andThen(function() {
-    ok(exists('div.album-info'), "There should be a <div> with class 'album-info'");
+    ok(exists('div.album__info'), "There should be a <div> with class 'album__info'");
   });
 });
 
