@@ -1,5 +1,5 @@
 /*
-  For Step 3, use the `{{#if}}` helper to only show an "EXPLICIT" warning
+  For Step 3, use the `{{#if}}` helper to only show an "Explicit" warning
   about the album if the model's `isExplicit` property is true.
 
   Your template should generate HTML that looks like this:
@@ -13,7 +13,7 @@
       <p class="artist-name">GOLDHOUSE</p>
       <p class="song-count">
         8 songs
-        <span class='explicit'>EXPLICIT</span>
+        <span class='explicit'>Explicit</span>
       </p>
     </div>
 
@@ -27,7 +27,7 @@ import step from '../helpers/step';
 
 function albumIsExplicit(name) {
   var el = findWithAssert('.album:has(.album__name:contains('+name+'))');
-  return el.find('.album__explicit:contains(EXPLICIT)').length === 1;
+  return el.find('.album__explicit').length === 1;
 }
 
 step(2, "Add Explicit Warning");

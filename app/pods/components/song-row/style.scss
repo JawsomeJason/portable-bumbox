@@ -33,18 +33,20 @@
 
   .play,
   .audio-control {
-    display: none;
+    visibility: hidden;
+    cursor: pointer;
+    pointer-events: none;
   }
 
   &:hover {
     .play,
     .audio-control {
-      display: block;
-      cursor: pointer;
+      visibility: visible;
+      pointer-events: all;
     }
 
     .song-row__track-number {
-      display: none;
+      visibility: hidden;
     }
   }
 }

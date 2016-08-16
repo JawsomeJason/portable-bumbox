@@ -11,13 +11,13 @@
   following HTML when a song is playing:
 
     <span class="audio-control">
-      <span {{action 'pause'}}>❙❙</span>
+      <span {{action 'pause'}}>Pause</span>
     </span>
 
   And this HTML when the song is paused:
 
     <span class="audio-control">
-      <span {{action 'play'}}>▶</span>
+      <span {{action 'play'}}>Play</span>
     </span>
 
   Once we have have this component in the {{now-playing}} template, we'll

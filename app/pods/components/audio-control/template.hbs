@@ -1,5 +1,5 @@
 {{#if isPlaying}}
-  <span class="audio-control__pause" {{action 'pause'}}>❙❙</span>
+  <button class="audio-control__pause" title="Pause this song" {{action 'pause'}}>❙❙</button>
 {{else}}
-  <span class="audio-control__play" {{action 'play'}}>▶</span>
+  <button class="audio-control__play" title="Play this song" {{action 'play'}}>▶</button>
 {{/if}}

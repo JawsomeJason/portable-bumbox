@@ -13,7 +13,7 @@
       1
     </span>
     <span class="play">
-      <span>▶</span>
+      <span>Play</span>
     </span>
   </td>
   <td class="song-name">Song name</td>
@@ -26,7 +26,7 @@
       1
     </span>
     <span class="play">
-      <span>❙❙</span>
+      <span>Pause</span>
     </span>
   </td>
   <td class="song-name">Song name</td>
@@ -45,8 +45,8 @@ test("the component shows the play button by default", function() {
   visit('album/1');
 
   andThen(function() {
-    equal(find('tr:first .play:contains(▶)').length, 1, "The play button is showing");
-    equal(find('tr:first .play:contains(❙❙)').length, 0, "The pause button is not showing");
+    equal(find('.song-row:first .audio-control__play').length, 1, "The play button is showing");
+    equal(find('.song-row:first .audio-control__pause').length, 0, "The pause button is not showing");
   });
 });
 
@@ -54,18 +54,18 @@ test("the component toggles betwen the pause and play button when it's clicked",
   expect(4);
   visit('album/1');
 
-  click('tr:first span:contains(▶)');
+  click('.song-row:first .audio-control__play');
 
   andThen(function() {
-    equal(find('tr:first .play:contains(❙❙)').length, 1, "The pause button is showing");
-    equal(find('tr:first .play:contains(▶)').length, 0, "The play button is not showing");
+    equal(find('.song-row:first .audio-control__pause').length, 1, "The pause button is showing");
+    equal(find('.song-row:first .audio-control__play').length, 0, "The play button is not showing");
   });
 
-  click('tr:first span:contains(❙❙)');
+  click('.song-row:first .audio-control__pause');
 
   andThen(function() {
-    equal(find('tr:first .play:contains(▶)').length, 1, "The play button is showing");
-    equal(find('tr:first .play:contains(❙❙)').length, 0, "The pause button is not showing");
+    equal(find('.song-row:first .audio-control__play').length, 1, "The play button is showing");
+    equal(find('.song-row:first .audio-control__pause').length, 0, "The pause button is not showing");
   });
 });
 
