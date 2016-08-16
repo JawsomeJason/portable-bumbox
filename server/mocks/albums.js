@@ -1,31 +1,49 @@
 /*jshint node:true*/
 
+const ARTIST_FIXTURES = [{
+  id: "1",
+  name: "GOLDHOUSE",
+  albums: [ "1" ]
+}, {
+  id: "2",
+  name: "Emancipator",
+  albums: [ "2" ]
+}, {
+  id: "3",
+  name: "Macklemore & Ryan Lewis",
+  albums: [ "3" ]
+}, {
+  id: "4",
+  name: "fun.",
+  albums: [ "4" ]
+}, ]
+
 const ALBUM_FIXTURES = [{
   id: "1",
   artwork: "images/the-morning-after.jpg",
   name: "The Morning After",
-  artist: "GOLDHOUSE",
+  artists: [ "1" ],
   isExplicit: false,
   songs: [ "11", "12", "13", "14" ]
 }, {
   id: "2",
   artwork: "images/dusk-to-dawn.jpg",
   name: "Dusk to Dawn",
-  artist: "Emancipator",
+  artists: [ "2" ],
   isExplicit: false,
   songs: [ "21", "22", "23", "24" ]
 }, {
   id: "3",
   artwork: "images/the-heist.jpg",
   name: "The Heist",
-  artist: "Macklemore & Ryan Lewis",
+  artists: [ "3" ],
   isExplicit: true,
   songs: [ "31", "32", "33", "34" ]
 }, {
   id: "4",
   artwork: "images/some-nights.jpg",
   name: "Some Nights",
-  artist: "fun.",
+  artists: [ "4" ],
   isExplicit: true,
   songs: [ "41", "42", "43", "44" ]
 }];
@@ -151,6 +169,7 @@ module.exports = function(app) {
   albumsRouter.get('/', function(req, res) {
     res.send({
       'albums': ALBUM_FIXTURES,
+      'artists': ARTIST_FIXTURES,
       'songs': SONG_FIXTURES
     });
   });
@@ -158,6 +177,7 @@ module.exports = function(app) {
   albumsRouter.get('/:id', function(req, res) {
     res.send({
       'albums': ALBUM_FIXTURES,
+      'artists': ARTIST_FIXTURES,
       'songs': SONG_FIXTURES
     });
   });
